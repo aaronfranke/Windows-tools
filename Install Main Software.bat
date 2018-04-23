@@ -1,21 +1,52 @@
+
 @echo off
+
+for /f "tokens=4-7 delims=[.] " %%i in ('ver') do (if %%i==Version (set version=%%j.%%k) else (set version=%%i.%%j))
 
 echo This tool will automatically download all of aaronfranke's preferred 
 echo software via opening the download links in your web browser.
 echo.
-echo Note: Not all software is included on this installer list. 
+echo A lot of the programs are within a Ninite wrapper for easy installation.
+echo.
+echo Note: Not all included links are opened by this script. 
 echo Visit the folders to manually download other programs.
 echo.
-echo WINDOWS XP USERS PLEASE READ THIS!
+if "%version%" == "5.0" echo  Detected Windows version: Windows 2000 (unsupported)
+if "%version%" == "5.1" echo  Detected Windows version: Windows XP
+if "%version%" == "5.2" echo  Detected Windows version: Windows XP x64 (unsupported)
+if "%version%" == "6.0" echo  Detected Windows version: Windows Vista (unsupported)
+if "%version%" == "6.1" echo  Detected Windows version: Windows 7
+if "%version%" == "6.2" echo  Detected Windows version: Windows 8.0 (unsupported)
+if "%version%" == "6.3" echo  Detected Windows version: Windows 8.1
+if "%version%" == "10.0" echo  Detected Windows version: Windows 10
 echo.
-echo I highly recommend that you install the Unofficial Service Pack 4, for 
-echo Windows XP 32-bit systems only. Includes updates through April 2019 from 
-echo POSReady 2009. Please ensure Service Pack 3 is installed prior to this.
-echo.
-echo If you are using Windows XP 64-bit, then your system is no longer supported. 
-echo Only the 32-bit version is supported with this trick until April 2019. 
-echo.
-echo If you are running unsupported Windows XP, consider switching to Linux.
+
+rem Out-of-support warnings for various EOL Windows versions. 
+if "%version%" == "5.0" echo WINDOWS 2000 USERS PLEASE READ THIS!
+if "%version%" == "5.0" echo.
+if "%version%" == "5.0" echo Windows 2000 is no longer supported. Please consider switching to Lubuntu.
+
+if "%version%" == "5.1" echo WINDOWS XP USERS PLEASE READ THIS!
+if "%version%" == "5.1" echo.
+if "%version%" == "5.1" echo I highly recommend that you install the Unofficial Service Pack 4, for 
+if "%version%" == "5.1" echo Windows XP 32-bit systems only. Includes updates through April 2019 from 
+if "%version%" == "5.1" echo POSReady 2009. Please ensure Service Pack 3 is installed prior to this.
+if "%version%" == "5.1" echo.
+if "%version%" == "5.1" echo Please consider switching to Lubuntu.
+
+if "%version%" == "5.2" echo WINDOWS XP X64 USERS PLEASE READ THIS!
+if "%version%" == "5.2" echo.
+if "%version%" == "5.2" echo Windows XP x64 edition is no longer supported. Please consider switching to Lubuntu.
+if "%version%" == "5.2" echo Only the 32-bit version is supported with Unofficial SP4 until April 2019. 
+
+if "%version%" == "6.0" echo WINDOWS VISTA USERS PLEASE READ THIS!
+if "%version%" == "6.0" echo.
+if "%version%" == "6.0" echo Windows Vista is no longer supported. Please consider switching to Xubuntu.
+
+if "%version%" == "6.2" echo WINDOWS 8.0 USERS PLEASE READ THIS!
+if "%version%" == "6.2" echo.
+if "%version%" == "6.2" echo Windows 8.0 is no longer supported. Please upgrade to Windows 8.1 or Xubuntu.
+
 echo.
 
 pause
@@ -25,99 +56,65 @@ echo.
 echo Beginning automatic download of software...
 echo.
 
-cd "Web Browsers"
-echo Downloading Web Browsers...
-    "Chrome.url"
-    "Firefox.url"
-    "Opera.url"
-cd ..
+echo Downloading many programs from Ninite...
+    "Ninite Apps.url"
 
+echo.
 pause
 echo.
-
-cd "Essential Libraries"
-echo Downloading Essential Libraries...
-    "DirectX Runtime.url"
-    "OpenSSL.url"
-    "Java.url"
-cd ..
-
-pause
 echo.
 
 cd "Piriform Tools"
-echo Downloading the Piriform tools...
+echo Downloading Piriform Tools...
     "Piriform Speccy.url"
     "Piriform CCleaner.url"
     "Piriform Defraggler.url"
 cd ..
 
+echo.
 pause
 echo.
-
-cd "Security"
-echo Downloading Security software...
-    "Malwarebytes Anti-Malware.url"
-cd ..
-
-pause
 echo.
 
-cd "Document Management"
-echo Downloading Document Management programs...
-    "Dropbox.url"
-    "Notepad++.url"
-    "LibreOffice.url"
-    "7-Zip.url"
+cd "Misc Libraries"
+echo Downloading Misc Libraries and Patches...
+    "DirectX Runtime.url"
+    "Ext2Fsd.url"
 cd ..
 
+cd "Version-Specific Patches"
+    if "%version%" == "6.1" "Win 7 - Microsoft Security Essentials.url"
+    if "%version%" == "6.2" "Win 8 - Classic Shell.url"
+    if "%version%" == "6.3" "Win 8 - Classic Shell.url"
+    if "%version%" == "5.1" "Win XP - .NET Framework 4.0.url"
+    if "%version%" == "5.1" "Win XP - Unofficial Service Pack 4.url"
+    if "%version%" == "5.1" "Win XP - User Profile Hive Cleanup Service.url"
+cd ..
+
+echo.
 pause
 echo.
-
-cd "Media"
-echo Downloading Media programs...
-    "VLC Media Player.url"
-    "GIMP.url"
-cd ..
-
-pause
 echo.
 
-cd "Social"
-echo Downloading Social Apps...
-    "Steam.url"
-    "Skype.url"
-cd ..
+echo Downloading GitKraken...
+    "GitKraken.url"
 
+echo.
 pause
 echo.
-
-cd "Remote"
-echo Downloading Remote Control Software...
-    "FileZilla.url"
-    "Putty.url"
-    "TeamViewer.url"
-cd ..
-
-pause
 echo.
 
-cd "Other"
-echo Downloading Other Software...
-    "0.url"
-    "1.url"
-    "2.url"
-    "3.url"
-    "4.url"
-    "5.url"
-    "6.url"
-    "7.url"
-    "8.url"
-    "9.url"
-cd ..
+echo Downloading Discord...
+    "Discord.url"
+
+echo.
+pause
+echo.
+echo.
 
 cls
 echo Done!
+echo.
 
 pause
 
