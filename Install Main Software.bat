@@ -83,12 +83,13 @@ echo Downloading Misc Libraries and Patches...
 cd ..
 
 cd "Version-Specific Patches"
-    if "%version%" == "6.1" "Win 7 - Microsoft Security Essentials.url"
-    if "%version%" == "6.2" "Win 8 - Classic Shell.url"
-    if "%version%" == "6.3" "Win 8 - Classic Shell.url"
     if "%version%" == "5.1" "Win XP - .NET Framework 4.0.url"
     if "%version%" == "5.1" "Win XP - Unofficial Service Pack 4.url"
     if "%version%" == "5.1" "Win XP - User Profile Hive Cleanup Service.url"
+    if "%version%" == "6.1" "Win 7 - Microsoft Security Essentials.url"
+    if "%version%" == "6.2" "Win 8 - Classic Shell.url"
+    if "%version%" == "6.3" "Win 8 - Classic Shell.url"
+    if "%version%" == "10.0" start "Win10 Decrapifier PowerShell Script" PowerShell.exe -ExecutionPolicy Bypass -File "Win 10 - Decrapifier v2.ps1"
 cd ..
 
 echo.
