@@ -56,8 +56,8 @@ echo.
 echo Beginning automatic download of software...
 echo.
 
-echo Downloading many programs from Ninite...
-    "Ninite Apps.url"
+echo Downloading many programs via just-install...
+    "just-install.exe"
 
 echo.
 pause
@@ -67,7 +67,6 @@ echo.
 cd "Piriform Tools"
 echo Downloading Piriform Tools...
     "Piriform Speccy.url"
-    "Piriform CCleaner.url"
     "Piriform Defraggler.url"
 cd ..
 
@@ -78,7 +77,6 @@ echo.
 
 cd "Misc Libraries"
 echo Downloading Misc Libraries and Patches...
-    "DirectX Runtime.url"
     "Ext2Fsd.url"
 cd ..
 
@@ -91,22 +89,6 @@ cd "Version-Specific Patches"
     if "%version%" == "6.3" "Win 8 - Classic Shell.url"
     if "%version%" == "10.0" start "Win10 Decrapifier PowerShell Script" PowerShell.exe -ExecutionPolicy Bypass -File "Win 10 - Decrapifier v2.ps1"
 cd ..
-
-echo.
-pause
-echo.
-echo.
-
-echo Downloading GitKraken...
-    "GitKraken.url"
-
-echo.
-pause
-echo.
-echo.
-
-echo Downloading Discord...
-    "Discord.url"
 
 echo.
 pause
