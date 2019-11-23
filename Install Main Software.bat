@@ -64,7 +64,7 @@ pause
 echo.
 echo.
 
-cd "Piriform Tools"
+cd "Piriform"
 echo Downloading Piriform Tools...
     "Piriform Speccy.url"
     "Piriform Defraggler.url"
