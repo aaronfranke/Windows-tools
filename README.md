@@ -11,6 +11,8 @@ Not all software is included in the script. If you want those programs, manually
 
 Here is the list of programs included in just-install: 7zip ccleaner dotnet dropbox firefox gimp git gitkraken google-chrome itch libreoffice malwarebytes mono qbittorrent steam teamviewer visual-studio-code vlc windirstat youtube-dl
 
+Essentials list: 7zip dotnet google-chrome malwarebytes mono vlc windirstat teamviewer
+
 Feel free to suggest changes by making a fork and pull request in GitHub! 
 
 https://github.com/aaronfranke/Windows-tools
