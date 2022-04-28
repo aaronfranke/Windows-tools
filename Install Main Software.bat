@@ -4,9 +4,8 @@
 for /f "tokens=4-7 delims=[.] " %%i in ('ver') do (if %%i==Version (set version=%%j.%%k) else (set version=%%i.%%j))
 
 echo This tool will automatically download all of aaronfranke's preferred 
-echo software via opening the download links in your web browser.
-echo.
-echo A lot of the programs are within a Ninite wrapper for easy installation.
+echo software. Most of the programs are installed with just-install for easy
+echo installation. Otherwise, via opening the download links in your browser.
 echo.
 echo Note: Not all included links are opened by this script. 
 echo Visit the folders to manually download other programs.
@@ -18,7 +17,8 @@ if "%version%" == "6.0" echo  Detected Windows version: Windows Vista (unsupport
 if "%version%" == "6.1" echo  Detected Windows version: Windows 7
 if "%version%" == "6.2" echo  Detected Windows version: Windows 8.0 (unsupported by Microsoft)
 if "%version%" == "6.3" echo  Detected Windows version: Windows 8.1
-if "%version%" == "10.0" echo  Detected Windows version: Windows 10
+rem Yes, Windows 11 is version 10. It's stupid, I know.
+if "%version%" == "10.0" echo  Detected Windows version: Windows 10 or 11
 echo.
 
 rem Out-of-support warnings for various EOL Windows versions. 
@@ -43,9 +43,13 @@ if "%version%" == "6.0" echo WINDOWS VISTA USERS PLEASE READ THIS!
 if "%version%" == "6.0" echo.
 if "%version%" == "6.0" echo Windows Vista is no longer supported. Please consider switching to Xubuntu.
 
+if "%version%" == "6.1" echo WINDOWS 7 USERS PLEASE READ THIS!
+if "%version%" == "6.1" echo.
+if "%version%" == "6.1" echo Windows 7 is no longer supported. Please consider switching to Xubuntu or Linux Mint.
+
 if "%version%" == "6.2" echo WINDOWS 8.0 USERS PLEASE READ THIS!
 if "%version%" == "6.2" echo.
-if "%version%" == "6.2" echo Windows 8.0 is no longer supported. Please upgrade to Windows 8.1 or Xubuntu.
+if "%version%" == "6.2" echo Windows 8.0 is no longer supported. Please upgrade to Windows 8.1 or Xubuntu or Linux Mint.
 
 echo.
 
@@ -57,8 +61,7 @@ echo Beginning automatic download of software...
 echo.
 
 echo Downloading many programs via just-install...
-    "just-install.exe"
-
+    ".\just-install-all.bat"
 echo.
 pause
 echo.
@@ -67,7 +70,6 @@ echo.
 cd "Piriform"
 echo Downloading Piriform Tools...
     "Piriform Speccy.url"
-    "Piriform Defraggler.url"
 cd ..
 
 echo.
